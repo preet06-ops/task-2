@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow // Ultimate To-Do</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <button id="theme-toggle" class="floating-btn theme-btn" aria-label="Toggle Theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+    </button>
+
+    <main class="app-container">
+        <section id="task-view" class="view-section">
+            <header class="app-header">
+                <h1>Task<span>Flow</span></h1>
+                <p id="progress-text">Track your daily execution</p>
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </header>
+
+            <form id="todo-form" class="todo-form">
+                <input type="text" id="todo-input" placeholder="What is your next mission?..." autocomplete="off"
+                    required>
+                <button type="submit" id="add-btn" aria-label="Add Task">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5v14"></path>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="filter-panel">
+                <span id="items-left">0 tasks remaining</span>
+                <button id="clear-completed" class="text-btn">Clear Completed</button>
+            </div>
+
+            <button id="open-planner" class="planner-btn" type="button">🎯 Build Full-Day Program</button>
+
+            <ul id="todo-list" class="todo-list">
+            </ul>
+        </section>
+
+        <section id="planner-view" class="view-section hidden">
+            <div class="planner-header">
+                <div>
+                    <p class="eyebrow">Daily Program</p>
+                    <h2>Your checklist and schedule</h2>
+                </div>
+                <button id="back-to-tasks" class="text-btn" type="button">Back to tasks</button>
+            </div>
+
+            <div class="planner-grid">
+                <section class="panel-card">
+                    <h3>Ordered checklist</h3>
+                    <ol id="day-checklist" class="day-checklist"></ol>
+                </section>
+
+                <section class="panel-card suggestion-card">
+                    <h3>Suggestion panel</h3>
+                    <p class="panel-subtitle">Fill in the details and generate a full-day plan from your tasks.</p>
+
+                    <div class="suggestion-form">
+                        <label>
+                            Wake-up time
+                            <input type="time" id="wake-time" value="07:00">
+                        </label>
+                        <label>
+                            Sleep time
+                            <input type="time" id="sleep-time" value="22:00">
+                        </label>
+                        <label>
+                            Energy level
+                            <select id="energy-level">
+                                <option value="high">High</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </label>
+                        <label>
+                            Main focus
+                            <input type="text" id="main-focus" placeholder="Study, work, errands, fitness">
+                        </label>
+                    </div>
+
+                    <button id="generate-plan" class="planner-btn primary" type="button">Generate full-day
+                        program</button>
+                    <div id="plan-output" class="plan-output">Your suggested program will appear here.</div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <button id="back-to-top" class="floating-btn top-btn" aria-label="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"></path>
+        </svg>
+    </button>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
